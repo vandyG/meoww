@@ -40,7 +40,7 @@ def pitch_shift_meow(meow, sr, midi_note, original_pitch):
     # Calculate the number of semitones to shift
     n_steps = np.log2(target_freq / original_pitch) * 12  # Convert frequency ratio to semitones
 
-    # Shift pitch of meow by the calculated number of semitones
+    # Shift pitch of meow by the calculated number of semitones without altering the length
     shifted_meow = librosa.effects.pitch_shift(y=meow, sr=sr, n_steps=n_steps, bins_per_octave=12)
 
     return shifted_meow
