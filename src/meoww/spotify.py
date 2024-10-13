@@ -4,8 +4,8 @@ import tensorflow
 
 # print(ICASSP_2022_MODEL_PATH)
 
-model_output, midi_data, note_events = predict_and_save(
-    ["/home/vandy/work/meoww/data/songs/vocals.wav"],
+predict_and_save(
+    ["data/songs/billi_vocal.wav"],
     "data/",
     True,
     True,
