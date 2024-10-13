@@ -7,11 +7,11 @@ Original file is located at
     https://colab.research.google.com/drive/1CH78lummeM9KSfphMfpkgGKHrfP8J_Uh
 """
 
-!pip install spleeter
+# !pip install spleeter
 
-!spleeter separate  -p spleeter:2stems -o "/content/drive/MyDrive/" -c wav  "/content/drive/MyDrive/sonh_1.mp3"
+# !spleeter separate  -p spleeter:2stems -o "/content/drive/MyDrive/" -c wav  "/content/drive/MyDrive/sonh_1.mp3"
 
-!pip install pydub
+# !pip install pydub
 
 from pydub import AudioSegment
 
@@ -21,7 +21,7 @@ new_vocals = AudioSegment.from_file("/content/drive/MyDrive/song/meow_vocals_out
 
 # Adjust volumes to balance the mix
 instrumental = instrumental - 3  # Reduce instrumental volume by 3dB
-new_vocals = new_vocals   # Increase vocal volume by 2dB
+new_vocals = new_vocals  # Increase vocal volume by 2dB
 
 # Apply fade in/out manually to vocals for smooth transitions (crossfade simulation)
 new_vocals = new_vocals.fade_in(1000).fade_out(1000)  # 1 second fade-in and fade-out
@@ -60,9 +60,6 @@ final_song.export("/content/drive/MyDrive/song/final_song.wav", format="wav")
 
 # # Save the slowed-down final song
 # slower_song.export("/content/drive/MyDrive/song_cut/final_song_slowed.wav", format="wav")
-
-
-
 
 
 # from pydub import AudioSegment
