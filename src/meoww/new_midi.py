@@ -119,7 +119,7 @@ def midi_to_meow_vocals(midi_file, meow_wav_file, output_file):
 
 
 # Example usage
-midi_file = "data/songs/jb.mid"  # MIDI file of the vocals
+midi_file = "data/songs/vocals.mid"  # MIDI file of the vocals
 meow_wav_file = "data/meoww/meow-1.wav"  # Meow recording
 output_file = "data/songs/meow_vocals_output.wav"  # Output file
 
