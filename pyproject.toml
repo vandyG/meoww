@@ -28,11 +28,12 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "spleeter>=2.1.0",
     "numpy>=2.0.2",
-    "tensorflow>=2.9.3",
     "scipy>=1.14.1",
     "h5py>=3.12.1",
+    "tensorflow-cpu==2.10",
+    "tensorflow-directml-plugin>=0.4.0.dev230202",
+    "demucs>=4.0.1",
 ]
 
 [project.urls]
