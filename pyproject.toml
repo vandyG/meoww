@@ -28,7 +28,9 @@ classifiers = [
     "Topic :: Utilities",
     "Typing :: Typed",
 ]
-dependencies = []
+dependencies = [
+    "demucs>=4.0.1",
+]
 
 [project.urls]
 Homepage = "https://vandyG.github.io/meoww"
