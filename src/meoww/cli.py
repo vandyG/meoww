@@ -14,17 +14,18 @@
 from __future__ import annotations
 
 import argparse
+import pathlib
 import sys
 from typing import Any
 
-from meoww import debug
+from meoww import debug, separation
 
 
 class _DebugInfo(argparse.Action):
     def __init__(self, nargs: int | str | None = 0, **kwargs: Any) -> None:
         super().__init__(nargs=nargs, **kwargs)
 
-    def __call__(self, *args: Any, **kwargs: Any) -> None:  # noqa: ARG002
+    def __call__(self, *args: Any, **kwargs: Any) -> None:
         debug.print_debug_info()
         sys.exit(0)
 
@@ -38,6 +39,9 @@ def get_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="meoww")
     parser.add_argument("-V", "--version", action="version", version=f"%(prog)s {debug.get_version()}")
     parser.add_argument("--debug-info", action=_DebugInfo, help="Print debug information.")
+    parser.add_argument("file", type=pathlib.Path, help="Path to the audio file to convert.")
+    parser.add_argument("--output", type=pathlib.Path, default=pathlib.Path.cwd(), help="Output file path.")
+    parser.add_argument("--shifts", type=int, default=10, help="Number of shifts for the Demucs algorithm.")
     return parser
 
 
@@ -55,4 +59,7 @@ def main(args: list[str] | None = None) -> int:
     parser = get_parser()
     opts = parser.parse_args(args=args)
     print(opts)
+
+    separation.separate(opts.file, opts.output, opts.shifts)
+
     return 0

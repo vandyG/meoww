@@ -1,10 +1,11 @@
 """TODO: Docstring."""
 
 from pathlib import Path
+
 import demucs.separate
 
 
-def separate(path: Path, out: Path, shifts: int = 10):
+def separate(path: Path, out: Path, shifts: int = 10) -> None:
     """Separate vocals from an audio file using Demucs.
 
     Args:
@@ -24,13 +25,17 @@ def separate(path: Path, out: Path, shifts: int = 10):
 
     demucs.separate.main(
         [
-            path,
+            str(path),
             "-o",
-            out,
+            str(out),
             "--shifts",
-            shifts,
+            f"{shifts}",
             "--two-stems",
             "vocals",
             "--flac",
-        ]
+        ],
     )
+
+
+if __name__ == "__main__":
+    separate(Path("/home/vandy/work/meoww/data/Adele - Hello.flac"), Path("data/"))
