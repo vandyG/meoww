@@ -26,3 +26,6 @@ __pycache__/
 
 # test data
 data/
+
+# envrc file
+.envrc
