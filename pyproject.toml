@@ -29,7 +29,10 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
+    "basic-pitch>=0.4.0",
     "demucs>=4.0.1",
+    "librosa>=0.10.2.post1",
+    "mido>=1.3.3",
 ]
 
 [project.urls]
