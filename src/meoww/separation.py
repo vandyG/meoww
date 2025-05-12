@@ -32,7 +32,6 @@ def separate(path: Path, out: Path, shifts: int = 10) -> None:
             f"{shifts}",
             "--two-stems",
             "vocals",
-            "--flac",
         ],
     )
 
